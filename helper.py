@@ -29,11 +29,6 @@ def create_image(rgbArray):
 	img.save('my.png')
 	img.show()
 	
-	import numpy as np
-	import os
-	from PIL import Image
-	import PIL.Image
-	import math
 	
 def scaleImage(filename, w, h):
 	## file is a string for the filename
@@ -50,3 +45,5 @@ def scaleImage(filename, w, h):
 	img = img.crop((0, 0, w, h))
 	img.save("test_" + str(i) + ".png")
 	i += 1
+
+image_array("gold.jpg")
