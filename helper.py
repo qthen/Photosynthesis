@@ -35,7 +35,7 @@ def create_image(rgbArray):
 	import PIL.Image
 	import math
 	
-def scaleImage(filename):
+def scaleImage(filename, w, h):
 	## file is a string for the filename
 	i = 0
 	factor = 1
@@ -47,6 +47,6 @@ def scaleImage(filename):
 	width *= factor
 	height *= factor
 	img = img.resize((width, height))
-	img = img.crop((0, 0, 512, 512))
+	img = img.crop((0, 0, w, h))
 	img.save("test_" + str(i) + ".png")
 	i += 1
