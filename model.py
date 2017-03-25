@@ -1,4 +1,5 @@
 import numpy as np
+import math
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, LSTM
 
