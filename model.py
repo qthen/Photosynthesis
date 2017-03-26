@@ -1,17 +1,17 @@
 import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, LSTM, Conv2DTranspose, Reshape
-from helper import char_to_index, create_image, image_array
+from helper import char_to_index, create_image, image_array, PixelActivation
 from keras.utils import to_categorical
 from keras.preprocessing.sequence import pad_sequences
-from keras.optimizers import Adagrad, Adam
+from keras.optimizers import Adagrad, Adam, RMSprop, SGD
 
 #Constants
 LSTM_DIMENSION = 1024
 VOCAB_SIZE = 60
-DENSE_DIMENSION_1 = 12288
-DENSE_DIMENSION_2 = 512
-DENSE_DIMENSION_3 = 512
+DENSE_DIMENSION_1 = 2048
+DENSE_DIMENSION_2 = 2048
+DENSE_DIMENSION_3 = 12288
 DENSE_DIMENSION_4 = 512
 MAX_LENGTH = 42
 
@@ -37,6 +37,9 @@ class Model(object):
 		self.model.add(LSTM(LSTM_DIMENSION, input_shape=(42,VOCAB_SIZE), kernel_initializer='random_uniform', activation='tanh'))
 		self.model.add(Dense(DENSE_DIMENSION_1, activation='relu', kernel_initializer='random_uniform', use_bias=True))
 		self.model.add(Dropout(0.2))
+		self.model.add(Dense(DENSE_DIMENSION_2, activation='relu', kernel_initializer='random_uniform', use_bias=True))
+		self.model.add(Dropout(0.2))
+		self.model.add(Dense(DENSE_DIMENSION_3, activation='relu', kernel_initializer='random_uniform', use_bias=True))
 		self.model.add(Reshape((4, 4, 768))) #This needs to be aligned with the actual images
 
 		# #Upsampling

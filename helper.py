@@ -1,3 +1,4 @@
+import math as math
 import numpy as np
 from PIL import Image
 #Helper functions - may become outdated as the model grows
@@ -28,3 +29,8 @@ def create_image(rgbArray):
 	img = Image.fromarray(rgbArray, 'RGB')
 	img.save('my.png')
 	img.show()
+
+#An activation that attempts to sigmoid the neurons into 0 - 255
+def PixelActivation(x):
+	# return 255/(1+(math.e**(-x)))
+	return x % 256
