@@ -1,4 +1,4 @@
-import math as math
+import math
 import numpy as np
 from PIL import Image
 #Helper functions - may become outdated as the model grows
@@ -29,6 +29,23 @@ def create_image(rgbArray):
 	img = Image.fromarray(rgbArray, 'RGB')
 	img.save('my.png')
 	img.show()
+	
+	
+def scaleImage(filename, w, h):
+	## file is a string for the filename
+	i = 0
+	factor = 1
+	img = PIL.Image.open(filename)
+	width, height = img.size
+	smallest = min(width,height)
+	factor = int(math.ceil(float(512) / float(smallest)))
+	## Adjust by the factor to keep aspect ratio
+	width *= factor
+	height *= factor
+	img = img.resize((width, height))
+	img = img.crop((0, 0, w, h))
+	img.save("test_" + str(i) + ".png")
+	i += 1
 
 #An activation that attempts to sigmoid the neurons into 0 - 255
 def PixelActivation(x):
