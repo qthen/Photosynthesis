@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+    	<title> 
+    	<div style="text-align: center;">
+    		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+    		<div style="font-size: 36px; font-weight: bold;">
+        	<h1> Neural Net Painting Search <h1> 
+        	</h1>
+        	<div>
+        	</title>
+    </head>
+    <body>
+    	<p>
+    	 	<div style="font-size: 24px;">
+        	<h2> Enter word here for Neural Net to analyze: </h2>
+        	<form action="https://www.google.com/search" method="get">		//Replace Google link with link to neural net engine 
+        	<input name="q" type="text"/>									//What is CS50 trying to do here?
+        	<br/>															//Break?
+           <input type="submit" value="Neural Net Painting Search"/>		//Value of "Neural Net Painting Search" = "Submit"???? 
+        	</div>
+        </p>
+    </body>
+</html>
